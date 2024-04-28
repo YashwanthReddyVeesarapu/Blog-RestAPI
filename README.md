@@ -73,6 +73,8 @@ To run tests, execute the following command:
 python -m unittest tests.test_blog_routes
 ```
 
+To test the API endpoints, you can use the Postman collection provided in the repository.
+
 ## Contributing
 
 Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
