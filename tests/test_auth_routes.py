@@ -19,7 +19,7 @@ class TestAuthRoutes(unittest.TestCase):
     def test_signup(self):
         # Test user signup
         data = {
-            "email": "test@example.com",
+            "email": "test1@example.com",
             "password": "password123"
         }
         response = self.client.post('/auth/signup', json=data)
@@ -34,8 +34,8 @@ class TestAuthRoutes(unittest.TestCase):
         response = self.client.post('/auth/login', json=data)
         self.assertEqual(response.status_code, 200)
         # Assert that the response contains the expected keys
-        self.assertIn('token', response.json())
-        self.assertIn('uid', response.json())
+        self.assertIn('token', response.json)
+        self.assertIn('uid', response.json)
 
     def test_verify(self):
         # Test token verification
@@ -52,15 +52,15 @@ class TestAuthRoutes(unittest.TestCase):
             "password": "password123"
         }
         login_response = self.client.post('/auth/login', json=login_data)
-        token = login_response.json()['token']
+        token = login_response.json['token']
 
         # Now, verify the token
         headers = {'Authorization': token}
         response = self.client.get('/auth/verify', headers=headers)
         self.assertEqual(response.status_code, 200)
         # Assert that the response contains the expected keys
-        self.assertIn('token', response.json())
-        self.assertIn('uid', response.json())
+        self.assertIn('token', response.json)
+        self.assertIn('uid', response.json)
 
     def test_logout(self):
         # Test user logout (for testing purposes)

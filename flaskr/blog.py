@@ -23,12 +23,10 @@ def create_post(current_user):
     if not title or not content or not description or not author_id:
         return jsonify({'error': 'Missing required fields'}), 400
     post = Post(title=title, content=content, description=description, author_id=author_id)
-    post.save()
-
-    id = post.inserted_id
+    post_id = post.save()
 
     return jsonify({'message': 'Post created successfully', 
-        'post_id': str(id)
+        'post_id': post_id
     }), 201
 
 @blog_bp.route('/posts', methods=['GET'])
@@ -41,7 +39,7 @@ def get_post(post_id):
     post = Post.get_by_id(post_id)
     if not post:
         return jsonify({'error': 'Post not found'}), 404
-    return jsonify({'post': post}), 200
+    return jsonify(post), 200
 
 @blog_bp.route('/posts/<post_id>', methods=['PUT'])
 @token_required

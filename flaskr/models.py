@@ -57,7 +57,9 @@ class Post:
 
     def save(self):
         db = get_db()
-        db.posts.insert_one(self.__dict__)
+        res = db.posts.insert_one(self.__dict__)
+        post_id = str(res.inserted_id)
+        return post_id  
 
     @staticmethod
     def get_all():
