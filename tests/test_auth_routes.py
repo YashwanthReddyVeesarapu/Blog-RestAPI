@@ -1,8 +1,8 @@
 import unittest
-import json
 from flask import Flask
 from flaskr.auth import auth_bp  # Assuming the authentication blueprint is named auth_bp
-from flaskr.models import User
+
+import os
 
 class TestAuthRoutes(unittest.TestCase):
 
@@ -11,7 +11,7 @@ class TestAuthRoutes(unittest.TestCase):
         self.app = Flask(__name__)
         self.app.register_blueprint(auth_bp)
         self.client = self.app.test_client()
-        self.app.config["MONGO_URI"] = "mongodb://localhost:27017/blog"
+        self.app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
     def tearDown(self):
         pass

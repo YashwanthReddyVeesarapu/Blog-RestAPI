@@ -13,6 +13,7 @@ class TestFlaskAPI(unittest.TestCase):
         self.client = self.app.test_client()
         self.app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
+        # replace this with the ID of a test post
         self.post_id = "662dd803fae6d11c7886fd16"
 
 
