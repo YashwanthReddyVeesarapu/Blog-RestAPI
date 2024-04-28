@@ -70,7 +70,7 @@ This is a simple RESTful API built using Flask for managing blog posts.
 To run tests, execute the following command:
 
 ```bash
-python -m unittest tests.test_blog_routes
+python -m unittest discover -s tests -p "test_*.py"
 ```
 
 To test the API endpoints, you can use the Postman collection provided in the repository.
