@@ -2,7 +2,7 @@ from flask import Flask
 from flask_pymongo import PyMongo
 
 
-from . import db
+from flaskr import db
 
 
 from flaskr.auth import auth_bp

@@ -19,7 +19,7 @@ class TestAuthRoutes(unittest.TestCase):
     def test_signup(self):
         # Test user signup
         data = {
-            "email": "test1@example.com",
+            "email": "test@example.com",
             "password": "password123"
         }
         response = self.client.post('/auth/signup', json=data)
